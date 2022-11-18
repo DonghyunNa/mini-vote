@@ -1,6 +1,7 @@
 import { Col, Row } from 'react-bootstrap';
 
 import PollPreviewCard from 'components/poll/card/Preview';
+import { NextPageContext } from 'next';
 
 function Home() {
   return (

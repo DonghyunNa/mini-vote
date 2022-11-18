@@ -1,7 +1,5 @@
 import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-import Navbar from 'components/document/Navbar';
-import { Container } from 'react-bootstrap';
 
 export default class RootDocument extends Document {
   render() {
@@ -22,11 +20,8 @@ export default class RootDocument extends Document {
           />
         </Head>
         <body>
-          <Navbar />
-          <Container>
-            <Main />
-            <NextScript />
-          </Container>
+          <Main />
+          <NextScript />
         </body>
       </Html>
     );
