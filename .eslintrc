@@ -1,0 +1,89 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true,
+    "mocha": true
+  },
+  "extends": [
+    "airbnb",
+    "plugin:react/recommended",
+    "plugin:jest/recommended",
+    "plugin:promise/recommended",
+    "plugin:mocha/recommended",
+    "prettier"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly",
+    "JSX": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "prettier", "promise", "mocha", "@typescript-eslint", "jsx-a11y"],
+  "rules": {
+    // One true brace style
+    // https://eslint.org/docs/rules/brace-style.html
+    "brace-style": [2, "1tbs", { "allowSingleLine": false }],
+    // Require following curly brace always
+    "curly": ["error", "all"],
+    // Don't use single character naming
+    "id-length": ["error", { "exceptions": ["i", "_"] }],
+    // No method chaining more than 2
+    "newline-per-chained-call": ["error", { "ignoreChainWithDepth": 4 }],
+    "no-multiple-empty-lines": ["error", { "max": 1 }],
+    // Maximum characters per line
+    "max-len": ["error", { "code": 100 }],
+    "no-else-return": "off",
+    "no-use-before-define": "off",
+    "no-console": ["error", { "allow": ["info", "warn", "error"] }],
+    "no-alert": "off",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "no-underscore-dangle": ["error", { "allow": ["_id", "__v", "_gridId"] }],
+    "no-plusplus": "error",
+    "quotes": "off",
+    "promise/always-return": "off",
+    "promise/no-callback-in-promise": "error",
+    "promise/no-nesting": "error",
+    "promise/avoid-new": "error",
+    "react/jsx-filename-extension": "off",
+    "jsx-quotes": ["error", "prefer-single"],
+    "prettier/prettier": "error",
+    "object-curly-newline": "off",
+    "react/jsx-props-no-spreading": "off",
+    "import/prefer-default-export": "off",
+    "jsx-a11y/label-has-for": [
+      2,
+      {
+        "required": {
+          "some": ["nesting", "id"]
+        }
+      }
+    ],
+    "jest/expect-expect": "off",
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "import/extensions": "off",
+    "react/require-default-props": "off",
+    "react/no-array-index-key": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": ["./src/setupTests.js", "**/*.test.js", "**/*.test.ts", "**/*.test.tsx"]
+      }
+    ],
+    "mocha/no-mocha-arrows": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": { "project": "./tsconfig.json" }
+    }
+  }
+}
