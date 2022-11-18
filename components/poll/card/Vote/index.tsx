@@ -42,7 +42,7 @@ function PollVoteCard({ title, description, candidates }: Props) {
       <Card.Body className='rounded-0'>
         <Row md={2} lg={3} className='justify-content-end g-2'>
           <Col>
-            <Button variant='primary' className='rounded-0 col-12' onClick={() => alert(id)}>
+            <Button variant='primary' className='rounded-0 col-12' onClick={() => {}}>
               투표하기
             </Button>
           </Col>
