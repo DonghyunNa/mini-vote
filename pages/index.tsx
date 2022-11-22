@@ -1,7 +1,6 @@
 import { Col, Row } from 'react-bootstrap';
 
 import PollPreviewCard from 'components/poll/card/Preview';
-import { NextPageContext } from 'next';
 
 function Home() {
   return (
@@ -11,22 +10,18 @@ function Home() {
         <Col>
           <PollPreviewCard
             id='vsuru'
+            image='/korea.png'
             title='우루과이전 MOM은 누구일까요?'
             description='2022-11-18까지 진행됩니다.'
           />
         </Col>
+
         <Col>
           <PollPreviewCard
-            id='123'
-            title='우루과이전 MOM은 누구일까요?'
-            description='2022-11-18까지 진행됩니다.'
-          />
-        </Col>
-        <Col>
-          <PollPreviewCard
-            id='123'
-            title='우루과이전 MOM은 누구일까요?'
-            description='2022-11-18까지 진행됩니다.'
+            id='worldcup'
+            image='/worldcup.png'
+            title='이번 월드컵 우승이 유력한 팀은?'
+            description='이번 월드컵 우승이 가장 유력한 팀은 어디일까요?'
           />
         </Col>
       </Row>

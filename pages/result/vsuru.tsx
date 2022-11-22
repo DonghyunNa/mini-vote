@@ -1,6 +1,6 @@
 import { Row, Col } from 'react-bootstrap';
 
-import PollVoteCard from 'components/poll/card/Vote';
+import PollResultCard from 'components/poll/card/Result';
 
 import CANDIDATES from 'constants/candidates';
 
@@ -9,7 +9,7 @@ function Uruguay() {
     <main>
       <Row xs={1} md={2} lg={3} className='g-4 mt-4 justify-content-center'>
         <Col>
-          <PollVoteCard
+          <PollResultCard
             id='vsuru'
             image='/korea.png'
             title='우루과이전 MOM은 누구일까요?'

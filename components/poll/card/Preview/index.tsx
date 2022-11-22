@@ -5,18 +5,19 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 type Props = {
+  image: string;
   id: string;
   title: string;
   description: string;
 };
 
-function PollPreviewCard({ id, title, description }: Props) {
+function PollPreviewCard({ image, id, title, description }: Props) {
   return (
     <Card className='rounded-0'>
       <Card.Img
         className='rounded-0'
         variant='top'
-        src='/korea.png'
+        src={image}
         style={{ objectFit: 'contain', width: '100%', height: 130 }}
       />
       <Card.Body className='rounded-0'>
@@ -25,13 +26,15 @@ function PollPreviewCard({ id, title, description }: Props) {
 
         <Row md={2} lg={3} className='justify-content-end g-2'>
           <Col>
-            <Button variant='primary' className='rounded-0 col-12' onClick={() => alert(id)}>
-              투표하기
-            </Button>
+            <Link href={`/poll/${id}`}>
+              <Button variant='primary' className='rounded-0 col-12'>
+                투표하기
+              </Button>
+            </Link>
           </Col>
 
           <Col>
-            <Link href={`/poll/${id}`}>
+            <Link href={`/result/${id}`}>
               <Button variant='danger' className='rounded-0 col-12'>
                 결과보기
               </Button>

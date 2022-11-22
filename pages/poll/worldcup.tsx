@@ -10,11 +10,11 @@ function Uruguay() {
       <Row xs={1} md={2} lg={3} className='g-4 mt-4 justify-content-center'>
         <Col>
           <PollVoteCard
-            id='vsuru'
-            image='/korea.png'
-            title='우루과이전 MOM은 누구일까요?'
-            description='2022-11-18까지 진행됩니다.'
-            candidates={CANDIDATES.vsuru}
+            id='worldcup'
+            image='/worldcup.png'
+            title='이번 월드컵 우승이 유력한 팀은?'
+            description='이번 월드컵 우승이 가장 유력한 팀은 어디일까요?'
+            candidates={CANDIDATES.worldcup}
           />
         </Col>
       </Row>

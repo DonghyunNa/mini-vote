@@ -1,15 +1,15 @@
 import { NextPageContext } from 'next';
 
-import PollVoteCard from 'components/poll/card/Vote';
+import PollResultCard from 'components/poll/card/Result';
 
 import CANDIDATES from 'constants/candidates';
 
 function Uruguay() {
   return (
     <main>
-      <PollVoteCard
+      <PollResultCard
         id='vsuru'
-        image='/korea.png'
+        image='/worldcup.png'
         title='우루과이전 MOM은 누구일까요?'
         description='2022-11-18까지 진행됩니다.'
         candidates={CANDIDATES.vsuru}

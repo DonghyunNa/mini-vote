@@ -1,25 +1,35 @@
-import Link from 'next/link';
 import { useState } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { Button, Card, Col, ListGroup, Row } from 'react-bootstrap';
 
 type Props = {
+  id: string;
+  image: string;
   title: string;
   description: string;
   candidates: { id: string; name: string }[];
+  embed?: boolean;
 };
 
-function PollVoteCard({ title, description, candidates }: Props) {
+function PollVoteCard({ id, image, title, description, candidates, embed }: Props) {
+  const router = useRouter();
   const [selectedCandidate, selectCandidate] = useState<string>('');
+  const onSubmit = () => {};
   return (
     <Card className='rounded-0'>
-      <Card.Img variant='top' src='https://dummyimage.com/600x400/000/fff' />
+      <Card.Img
+        variant='top'
+        src={image}
+        style={{ objectFit: 'contain', width: '100%', height: 130 }}
+      />
 
       <Card.Body className='rounded-0'>
         <Card.Title>{title}</Card.Title>
         <Card.Text>{description}</Card.Text>
       </Card.Body>
 
-      <ListGroup className='list-group-flush rounded-0'>
+      <ListGroup className='list-group-flush rounded-0' style={{ overflowY: 'scroll' }}>
         {candidates.map(({ id, name }, index) => (
           <ListGroup.Item
             className='rounded-0'
@@ -42,13 +52,20 @@ function PollVoteCard({ title, description, candidates }: Props) {
       <Card.Body className='rounded-0'>
         <Row md={2} lg={3} className='justify-content-end g-2'>
           <Col>
-            <Button variant='primary' className='rounded-0 col-12' onClick={() => {}}>
+            <Button
+              variant='primary'
+              className='rounded-0 col-12'
+              onClick={() => {
+                onSubmit();
+                router.push(embed ? `/embed/result/${id}` : `/result/${id}`);
+              }}
+            >
               투표하기
             </Button>
           </Col>
 
           <Col>
-            <Link href='/poll'>
+            <Link href={embed ? `/embed/result/${id}` : `/result/${id}`}>
               <Button variant='danger' className='rounded-0 col-12'>
                 결과보기
               </Button>
