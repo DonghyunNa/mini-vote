@@ -12,9 +12,9 @@ function Seo() {
         description: '보트지지',
         images: [
           {
-            url: '/logo.png',
-            width: 800,
-            height: 400,
+            url: 'https://mini-vote.vercel.app/logo.png',
+            width: 100,
+            height: 100,
           },
         ],
       }}
