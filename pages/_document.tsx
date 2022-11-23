@@ -1,5 +1,6 @@
 import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+import Seo from 'components/document/Seo';
 
 export default class RootDocument extends Document {
   render() {
@@ -19,6 +20,7 @@ export default class RootDocument extends Document {
             referrerPolicy='no-referrer'
           />
         </Head>
+        <Seo />
         <body>
           <Main />
           <NextScript />

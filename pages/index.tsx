@@ -1,10 +1,13 @@
+import { NextSeo } from 'next-seo';
 import { Col, Row } from 'react-bootstrap';
 
 import PollPreviewCard from 'components/poll/card/Preview';
+import Seo from 'components/document/Seo';
 
 function Home() {
   return (
     <main>
+      <Seo />
       <h3 className='mt-4'>투표 목록</h3>
       <Row xs={1} md={2} lg={3} className='g-4'>
         <Col>
