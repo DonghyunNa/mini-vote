@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { Col, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { toast } from 'react-toastify';
 
 type Props = {
   image: string;
@@ -42,6 +42,68 @@ function PollPreviewCard({ image, id, title, description }: Props) {
           </Col>
         </Row>
       </Card.Body>
+
+      <Card.Footer
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'flex-end',
+          paddingTop: 0,
+          paddingBottom: 0,
+          backgroundColor: 'white',
+        }}
+      >
+        <button
+          type='button'
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: 40,
+            height: 40,
+            border: 'none',
+            backgroundColor: 'transparent',
+          }}
+          onClick={() => {
+            const dummyElement = document.createElement('textarea');
+            document.body.appendChild(dummyElement);
+            dummyElement.value = `https://mini-vote.vercel.app/poll/${id}`;
+            dummyElement.select();
+            document.execCommand('copy');
+            document.body.removeChild(dummyElement);
+            toast.info('클립보드에 복사되었습니다.');
+          }}
+        >
+          <span className='material-icons-outlined' style={{ fontSize: '1.5rem' }}>
+            share
+          </span>
+        </button>
+        <button
+          type='button'
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: 40,
+            height: 40,
+            border: 'none',
+            backgroundColor: 'transparent',
+          }}
+          onClick={() => {
+            const dummyElement = document.createElement('textarea');
+            document.body.appendChild(dummyElement);
+            dummyElement.value = `<iframe src="https://mini-vote.vercel.app/embed/poll/${id}" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>`;
+            dummyElement.select();
+            document.execCommand('copy');
+            document.body.removeChild(dummyElement);
+            toast.info('클립보드에 복사되었습니다.');
+          }}
+        >
+          <span className='material-icons-outlined' style={{ fontSize: '1.5rem' }}>
+            code
+          </span>
+        </button>
+      </Card.Footer>
     </Card>
   );
 }
