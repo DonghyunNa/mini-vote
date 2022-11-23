@@ -73,7 +73,7 @@ function PollResultCard({ id, image, title, description, candidates, embed }: Pr
           onClick={() => {
             const dummyElement = document.createElement('textarea');
             document.body.appendChild(dummyElement);
-            dummyElement.value = `<iframe src="https://mini-vote.vercel.app/embed/result/${id}" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>`;
+            dummyElement.value = `<iframe src="https://mini-vote.vercel.app/embed/result/${id}" width="350" height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>`;
             dummyElement.select();
             document.execCommand('copy');
             document.body.removeChild(dummyElement);
