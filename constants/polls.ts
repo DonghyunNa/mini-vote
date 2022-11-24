@@ -13,13 +13,13 @@ const POLLS = {
   },
   movie: {
     id: 'movie',
-    image: '/worldcup.png',
+    image: '/movie.jpeg',
     title: '영화의날 지속해야하나?',
     description: '위기의 영화의날',
   },
   hobby: {
     id: 'hobby',
-    image: '/korea.png',
+    image: '/hobby.jpeg',
     title: '여가의날 지속해야하나?',
     description: '위기의 여가의날',
   },
