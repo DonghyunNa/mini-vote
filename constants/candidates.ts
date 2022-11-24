@@ -61,6 +61,14 @@ const CANDIDATES = {
     { id: '31', name: '프랑스' },
     { id: '32', name: '호주' },
   ],
+  movie: [
+    { id: '1', name: '하자' },
+    { id: '2', name: '접자' },
+  ],
+  hobby: [
+    { id: '1', name: '하자' },
+    { id: '2', name: '접자' },
+  ],
 };
 
 export default CANDIDATES;

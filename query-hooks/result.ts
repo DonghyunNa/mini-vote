@@ -4,11 +4,13 @@ export const useGetResult = (pollId: string, candidates: { id: string; name: str
   useQuery(
     ['result', pollId],
     async () => {
-      if (['vsuru', 'worldcup'].includes(pollId)) {
-        const votes = RESULT[pollId as 'vsuru' | 'worldcup'].slice().map((vote, index) => ({
-          ...vote,
-          name: candidates[index].name,
-        }));
+      if (['vsuru', 'worldcup', 'hobby', 'movie'].includes(pollId)) {
+        const votes = RESULT[pollId as 'vsuru' | 'worldcup' | 'hobby' | 'movie']
+          .slice()
+          .map((vote, index) => ({
+            ...vote,
+            name: candidates[index].name,
+          }));
 
         votes.sort((a, b) => b.count - a.count);
         const sum = votes.reduce((a, b) => a + b.count, 0);
@@ -88,5 +90,13 @@ const RESULT = {
     { id: '30', count: 1242 },
     { id: '31', count: 1242 },
     { id: '32', count: 1242 },
+  ],
+  hobby: [
+    { id: '1', count: 2 },
+    { id: '2', count: 3 },
+  ],
+  movie: [
+    { id: '1', count: 2 },
+    { id: '2', count: 3 },
   ],
 };
