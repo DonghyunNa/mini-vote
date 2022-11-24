@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import { useGetResult } from 'query-hooks/result';
 
 type Props = {
-  id: string;
+  _id: string;
   image: string;
   title: string;
   description: string;
@@ -13,8 +13,8 @@ type Props = {
   embed?: boolean;
 };
 
-function PollResultCard({ id, image, title, description, candidates, embed }: Props) {
-  const { data } = useGetResult(id, candidates);
+function PollResultCard({ _id, image, title, description, candidates, embed }: Props) {
+  const { data } = useGetResult(_id);
 
   return (
     <Card className='rounded-0'>
@@ -48,7 +48,7 @@ function PollResultCard({ id, image, title, description, candidates, embed }: Pr
           onClick={() => {
             const dummyElement = document.createElement('textarea');
             document.body.appendChild(dummyElement);
-            dummyElement.value = `https://mini-vote.vercel.app/result/${id}`;
+            dummyElement.value = `https://mini-vote.vercel.app/result/${_id}`;
             dummyElement.select();
             document.execCommand('copy');
             document.body.removeChild(dummyElement);
@@ -73,7 +73,7 @@ function PollResultCard({ id, image, title, description, candidates, embed }: Pr
           onClick={() => {
             const dummyElement = document.createElement('textarea');
             document.body.appendChild(dummyElement);
-            dummyElement.value = `<iframe src="https://mini-vote.vercel.app/embed/result/${id}" width="350" height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>`;
+            dummyElement.value = `<iframe src="https://mini-vote.vercel.app/embed/result/${_id}" width="350" height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>`;
             dummyElement.select();
             document.execCommand('copy');
             document.body.removeChild(dummyElement);

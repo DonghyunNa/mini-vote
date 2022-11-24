@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Button, Card, Col, ListGroup, Row } from 'react-bootstrap';
+import { useVote } from 'query-hooks/vote';
 
 type Props = {
-  id: string;
+  _id: string;
   image: string;
   title: string;
   description: string;
@@ -12,10 +13,22 @@ type Props = {
   embed?: boolean;
 };
 
-function PollVoteCard({ id, image, title, description, candidates, embed }: Props) {
+function PollVoteCard({ _id, image, title, description, candidates, embed }: Props) {
   const router = useRouter();
   const [selectedCandidate, selectCandidate] = useState<string>('');
-  const onSubmit = () => {};
+  const { mutate, isSuccess } = useVote();
+  const onSubmit = () => {
+    if (selectedCandidate) {
+      mutate({ pollId: _id, selectionId: selectedCandidate });
+    }
+  };
+
+  useEffect(() => {
+    if (isSuccess) {
+      router.push(embed ? `/embed/result/${_id}` : `/result/${_id}`);
+    }
+  }, [isSuccess]);
+
   return (
     <Card className='rounded-0'>
       <Card.Img
@@ -57,7 +70,6 @@ function PollVoteCard({ id, image, title, description, candidates, embed }: Prop
               className='rounded-0 col-12'
               onClick={() => {
                 onSubmit();
-                router.push(embed ? `/embed/result/${id}` : `/result/${id}`);
               }}
             >
               투표하기
@@ -65,7 +77,7 @@ function PollVoteCard({ id, image, title, description, candidates, embed }: Prop
           </Col>
 
           <Col>
-            <Link href={embed ? `/embed/result/${id}` : `/result/${id}`}>
+            <Link href={embed ? `/embed/result/${_id}` : `/result/${_id}`}>
               <Button variant='danger' className='rounded-0 col-12'>
                 결과보기
               </Button>

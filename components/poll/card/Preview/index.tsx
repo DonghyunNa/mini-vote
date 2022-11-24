@@ -6,12 +6,12 @@ import { toast } from 'react-toastify';
 
 type Props = {
   image: string;
-  id: string;
+  _id: string;
   title: string;
   description: string;
 };
 
-function PollPreviewCard({ image, id, title, description }: Props) {
+function PollPreviewCard({ image, _id, title, description }: Props) {
   return (
     <Card className='rounded-0'>
       <Card.Img
@@ -26,7 +26,7 @@ function PollPreviewCard({ image, id, title, description }: Props) {
 
         <Row md={2} lg={3} className='justify-content-end g-2'>
           <Col>
-            <Link href={`/poll/${id}`}>
+            <Link href={`/poll/${_id}`}>
               <Button variant='primary' className='rounded-0 col-12'>
                 투표하기
               </Button>
@@ -34,7 +34,7 @@ function PollPreviewCard({ image, id, title, description }: Props) {
           </Col>
 
           <Col>
-            <Link href={`/result/${id}`}>
+            <Link href={`/result/${_id}`}>
               <Button variant='danger' className='rounded-0 col-12'>
                 결과보기
               </Button>
@@ -67,7 +67,7 @@ function PollPreviewCard({ image, id, title, description }: Props) {
           onClick={() => {
             const dummyElement = document.createElement('textarea');
             document.body.appendChild(dummyElement);
-            dummyElement.value = `https://mini-vote.vercel.app/poll/${id}`;
+            dummyElement.value = `https://mini-vote.vercel.app/poll/${_id}`;
             dummyElement.select();
             document.execCommand('copy');
             document.body.removeChild(dummyElement);
@@ -92,7 +92,7 @@ function PollPreviewCard({ image, id, title, description }: Props) {
           onClick={() => {
             const dummyElement = document.createElement('textarea');
             document.body.appendChild(dummyElement);
-            dummyElement.value = `<iframe src="https://mini-vote.vercel.app/embed/poll/${id}" width="350" height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>`;
+            dummyElement.value = `<iframe src="https://mini-vote.vercel.app/embed/poll/${_id}" width="350" height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-h_idden="false" tabindex="0"></iframe>`;
             dummyElement.select();
             document.execCommand('copy');
             document.body.removeChild(dummyElement);

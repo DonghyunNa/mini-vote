@@ -1,12 +1,8 @@
+import { createGetPollRequest, createGetPollsRequest } from 'apis/ssr';
 import PollResultCard from 'components/poll/card/Result';
+import { Poll, Selection } from 'types/poll';
 
-import CANDIDATES from 'constants/candidates';
-import POLLS from 'constants/polls';
-
-type Candidates = { id: string; name: string }[];
-type Poll = { id: string; title: string; image: string; description: string };
-
-function EmbedResult({ poll, candidates }: { poll: Poll; candidates: Candidates }) {
+function EmbedResult({ poll, candidates }: { poll: Poll; candidates: Selection[] }) {
   return (
     <main>
       <PollResultCard {...poll} candidates={candidates} embed />
@@ -14,22 +10,17 @@ function EmbedResult({ poll, candidates }: { poll: Poll; candidates: Candidates 
   );
 }
 
-export async function getStaticProps({
-  params,
-}: {
-  params: { id: 'vsuru' | 'worldcup' | 'movie' | 'hobby' };
-}) {
-  return { props: { candidates: CANDIDATES[params.id], poll: POLLS[params.id], noLayout: true } };
+export async function getStaticProps({ params }: { params: { id: string } }) {
+  const { data } = await createGetPollRequest({ id: params.id });
+
+  return { props: { candidates: data.selections, poll: data, noLayout: true } };
 }
 
 export async function getStaticPaths() {
+  const { data } = await createGetPollsRequest();
+
   return {
-    paths: [
-      '/embed/result/vsuru',
-      '/embed/result/worldcup',
-      '/embed/result/movie',
-      '/embed/result/hobby',
-    ],
+    paths: data.map((poll) => `/embed/result/${poll._id}`),
     fallback: false,
   };
 }
