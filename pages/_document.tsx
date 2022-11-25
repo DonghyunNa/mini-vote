@@ -1,6 +1,5 @@
 import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-import Seo from 'components/document/Seo';
 
 export default class RootDocument extends Document {
   render() {
@@ -24,7 +23,6 @@ export default class RootDocument extends Document {
           <link rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png' />
           <link rel='manifest' href='/site.webmanifest' />
         </Head>
-        <Seo />
         <body>
           <Main />
           <NextScript />
