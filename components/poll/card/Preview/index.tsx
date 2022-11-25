@@ -18,7 +18,7 @@ function PollPreviewCard({ image, _id, title, description }: Props) {
         className='rounded-0'
         variant='top'
         src={image}
-        style={{ objectFit: 'contain', width: '100%', height: 130 }}
+        style={{ objectFit: 'cover', width: '100%', height: 130 }}
       />
       <Card.Body className='rounded-0'>
         <Card.Title>{title}</Card.Title>

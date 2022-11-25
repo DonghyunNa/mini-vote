@@ -13,7 +13,7 @@ type Props = {
   embed?: boolean;
 };
 
-function PollResultCard({ _id, image, title, description, candidates, embed }: Props) {
+function PollResultCard({ _id, image, title, description, embed }: Props) {
   const { data } = useGetResult(_id);
 
   return (

@@ -34,7 +34,7 @@ function PollVoteCard({ _id, image, title, description, candidates, embed }: Pro
       <Card.Img
         variant='top'
         src={image}
-        style={{ objectFit: 'contain', width: '100%', height: 130 }}
+        style={{ objectFit: 'contain', width: '100%', height: 'auto', padding: 20 }}
       />
 
       <Card.Body className='rounded-0'>
