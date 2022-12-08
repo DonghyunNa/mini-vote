@@ -21,7 +21,7 @@ function PollPage({ poll, candidates }: { poll: Poll; candidates: Selection[] })
           images: [
             {
               url: poll.image,
-              width: 100,
+              width: 101,
               height: 100,
             },
           ],
